@@ -1,5 +1,5 @@
-const width = 710, height = 490;
-const path = d3.geoPath();
+ var width = 710, height = 490;
+ var path = d3.geoPath();
 
 // Projections for the different part of the French territory
 const projection = d3.geoConicConformal()
@@ -50,30 +50,31 @@ var matchingCandidates = {FI: "LR", MÉ : "LFI", LE:"FN", CH: "UMP", JO :"PS", R
 var format = d3.format(".2f")
 
 //Div of the tooltips
-var div = d3.select("body").append("div")   
-.attr("class", "tooltip")               
+var divFrench = d3.select("body").append("div")   
+.attr("class", "tooltipFrench")               
 .style("opacity", 0);
 
 //Creation of the projection
 path.projection(projection);
 
 // Add of the general SVG
-const svg = d3.select('#map').append("svg")
+var svg = d3.select('#map').append("svg")
 .attr("id", "svg")
 .attr("width", width)
 .attr("height", height);
 
-const deps = svg.append("g");
+var deps = svg.append("g");
 
 //Main function drawing the card
 function draw(round = 1){
-    d3.json('reg.json').then(function(geojson) {//Load the GeoJSON
+    d3.json('./French_map/reg.json').then(function(geojson) {//Load the GeoJSON
       deps.selectAll("path")
       .data(geojson.features)
       .enter()    
       .append("path")
             .attr('class', function(d){return d.properties.nom[0] + d.properties.nom[1]  + d.properties.nom[2];})//Assign na class name to each region. 3 first letters taken to avoid spaces
             .style("fill", function(d){//Fill the region by the color of the party depending of the year
+             console.log(d.properties["Parti"],matching[d.properties["Parti"]])
              if(round == 1){
               switch(sliderStep.value()) {    
                 case 2017:
@@ -257,7 +258,7 @@ function draw(round = 1){
               })
 
 
-                div.transition()  //Make the tooltip appear      
+                divFrench.transition()  //Make the tooltip appear      
                 .duration(200)
                 .style("opacity", 1);
 
@@ -305,41 +306,41 @@ function draw(round = 1){
 
                 if(round == 1){
               //Content of the tooltip
-              div.html( "<h3 id = 'region'> "+ d.properties.nom+ "</h3>"+ 
-                "<ul><li id = 'firstCandidate'>"+  d.properties[surnameFirst] + ": " + format(d.properties[firstScore])+"% </li>"
-                + "<li id = 'secondCandidate'> "+ d.properties[surnameSecond] + ": " + format(d.properties[secondScore])+"% </li></ul>")  
+              divFrench.html( "<h3 class = 'h3French' id = 'region'> "+ d.properties.nom+ "</h3>"+ 
+                "<ul class = 'ulFrench'><li class = 'liFrench' id = 'firstCandidate'>"+  d.properties[surnameFirst] + ": " + format(d.properties[firstScore])+"% </li>"
+                + "<li class = 'liFrench'  id = 'secondCandidate'> "+ d.properties[surnameSecond] + ": " + format(d.properties[secondScore])+"% </li></ul>")  
                   .style("left", (d3.event.pageX + 30) + "px")  //Placement of the tooltip compared to the mouse   
                   .style("top", (d3.event.pageY - 30) + "px")
 
                 //Lines next to candidates names
-                div.select("#firstCandidate").style("border-left",function(){
+                divFrench.select("#firstCandidate").style("border-left",function(){
                   temp =d.properties[surnameFirst][0] + d.properties[surnameFirst][1]
                   color = matching[matchingCandidates[temp]]
                   return "solid " + color;
                 })
 
                 //Lines next to candidates names
-                div.select("#secondCandidate").style("border-left",function(){
+                divFrench.select("#secondCandidate").style("border-left",function(){
                   temp =d.properties[surnameSecond][0] + d.properties[surnameSecond][1]
                   color = matching[matchingCandidates[temp]]
                   return "solid " + color;
                 })
               }else{
-               div.html( "<h3 id = 'region'> "+ d.properties.nom+ "</h3>"+ 
-                "<ul><li id = 'firstCandidate'>"+  d.properties.second[surnameFirst] + ": " + format(d.properties.second[firstScore])+"% </li>"
-                + "<li id = 'secondCandidate'> "+ d.properties.second[surnameSecond] + ": " + format(d.properties.second[secondScore])+"% </li></ul>")  
+               divFrench.html( "<h3  class = 'h3French' id = 'region'> "+ d.properties.nom+ "</h3>"+ 
+                "<ul class = 'ulFrench'><li class = 'liFrench' id = 'firstCandidate'>"+  d.properties.second[surnameFirst] + ": " + format(d.properties.second[firstScore])+"% </li>"
+                + "<li class = 'liFrench' id = 'secondCandidate'> "+ d.properties.second[surnameSecond] + ": " + format(d.properties.second[secondScore])+"% </li></ul>")  
                   .style("left", (d3.event.pageX + 30) + "px")  //Placement of the tooltip compared to the mouse   
                   .style("top", (d3.event.pageY - 30) + "px")
 
                 //Lines next to candidates names
-                div.select("#firstCandidate").style("border-left",function(){
+                divFrench.select("#firstCandidate").style("border-left",function(){
                   temp =d.properties.second[surnameFirst][0] + d.properties.second[surnameFirst][1]
                   color = matching[matchingCandidates[temp]]
                   return "solid " + color;
                 })
 
                 //Lines next to candidates names
-                div.select("#secondCandidate").style("border-left",function(){
+                divFrench.select("#secondCandidate").style("border-left",function(){
                   temp =d.properties.second[surnameSecond][0] + d.properties.second[surnameSecond][1]
                   color = matching[matchingCandidates[temp]]
                   return "solid " + color;
@@ -429,7 +430,7 @@ function draw(round = 1){
                         }
                       }
                     })
-                div.style("opacity", 0)//Tooltip diseapear
+                divFrench.style("opacity", 0)//Tooltip diseapear
                 .style("left", "-500px")
                 .style("top", "-500px");
               })

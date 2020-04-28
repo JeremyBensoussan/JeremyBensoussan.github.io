@@ -1,4 +1,4 @@
-div.tooltip {
+.tooltipFrench {
     position: absolute;
     text-align: center;
     width: 175px;
@@ -9,9 +9,45 @@ div.tooltip {
     pointer-events: none;
     line-height: normal;
 }
+.tooltipScatter {
+    position: absolute;
+    text-align: center;
+    width: 250px;
+    height: 150px;
+    padding: 2px;
+    background: white;
+    border: 1px solid;
+    pointer-events: none;
+    line-height: normal;
+    border-radius: 4px;
+}
+.tooltipScatter2 {
+    position: absolute;
+    text-align: center;
+    width: 250px;
+    height: 100px;
+    padding: 2px;
+    background: white;
+    border: 1px solid;
+    pointer-events: none;
+    line-height: normal;
+    border-radius: 4px;
+}
+span{
+    font-weight: normal;
+}
 
 
-ul {
+.scatter{
+    text-align: left;
+    font-size: 18;
+    padding: 0 0 0 4;
+   
+    margin-bottom: 7;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.ulFrench {
     list-style-type: none;
     margin-right: 6;
     margin-left: 6;
@@ -20,14 +56,14 @@ ul {
     padding-left: 0;
 }
 
-li {
+.liFrench {
     text-align: left;
     padding-left: 5;
     font-size: 10   ;
     margin-top: 2;
 }
 
-h3 {
+.h3French {
     text-align: left;
     font-size: 12   ;
     padding: 0 0 0 3;
@@ -45,7 +81,19 @@ h3 {
     margin-left: 10;
 }
 
+.h4title{
+        font-size: 14;
+     padding: 0 0 0 4;
+     text-align: left;
+     margin: 0;
+         font-weight: bold;
+     margin-bottom:7;
+}
 
+.label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
 * {
  font-family: Helvectica, sans-serif;
 }
@@ -55,4 +103,7 @@ h3 {
 }
 body{
    line-height: none;
+}
+#Y{
+    margin-left: 30px;
 }

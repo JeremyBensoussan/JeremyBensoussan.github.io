@@ -46,9 +46,9 @@ d3.csv("event.csv", function (csv) {
   //.attr("transform", "translate(0,150)");
 
   d3.select("svg#war").append("text").attr("x", 130)
-  .attr("y", 115)
+  .attr("y", 50)
   .style("text-anchor", "start")
-  .style("font-size", "50px")
+  .style("font-size", "28px")
   .text("Events that may affect French election");
 
   axis = d3.svg.axis().scale(xScale)
@@ -63,7 +63,7 @@ d3.csv("event.csv", function (csv) {
   d3.select("g.timeline")
   .append("g")
   .attr("class", "axis")
-  .attr("transform", "translate(120,-330)")
+  .attr("transform", "translate(120,-580)")
   .call(axis);
 
 types.forEach(function (type, i) {
@@ -73,7 +73,7 @@ types.forEach(function (type, i) {
 
   d3.select("g.timeline").append("g")
   .attr("class", "categories")
-  .attr("transform", "translate(100," + (80 + (i * 90)) + ")")
+  .attr("transform", "translate(100," + (0 + (i * 90)) + ")")
   .selectAll("rect")
   .data(theseBands)
   .enter().append("rect")
@@ -94,7 +94,7 @@ types.forEach(function (type, i) {
 
 d3.select("g.timeline").append("text")
   .text(type)
-  .attr("y", 100 + (i * 90))
+  .attr("y", 15 + (i * 90))
   .attr("x", 80)
   .style("font-size", "20px")
   .style("text-anchor", "end");
@@ -118,10 +118,10 @@ d3.select("g.timeline").append("text")
   .data(periodBars)
   .enter()
   .insert("rect", "g")
-  .attr("y", 15)
+  .attr("y", -65)
   .attr("x", function (d) {return d.start + 100})
-  .attr("width", function (d) {return d.end - d.start})
-  .attr("height", 770)
+  .attr("width", function (d) {return d.end - d.start +100})
+  .attr("height", 300)
   .style("fill", "#f6f6f6")
   .style("fill-opacity", 1);
 
@@ -201,7 +201,7 @@ peaceG
 
   var distG = d3.select("g.timeline")
   .insert("g", "g.axis")
-  .attr("transform", "translate(100,220)");
+  .attr("transform", "translate(100,70)");
 
   distG
   .append("text")
@@ -240,7 +240,7 @@ function hoverText(d, i) {
   d3.select("g.timeline").append("text")
   .attr("class", "label")
   .attr("x", d.start + 100)
-  .attr("y", d.y + (31 + (i * 90)))
+  .attr("y", d.y + (1000 + (i * 90)))
   .style("opacity", .9)
   .style("fill", "white")
   .style("stroke", "white")
@@ -260,7 +260,7 @@ function hoverText(d, i) {
   d3.select("g.timeline").append("text")
   .attr("class", "label")
   .attr("x", d.start + 100)
-  .attr("y", d.y + (31 + (i * 90)))
+  .attr("y", d.y + (-5 + (i * 90)))
   .style("pointer-events", "none")
     .text("")
     .transition()

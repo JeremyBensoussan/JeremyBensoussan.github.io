@@ -9396,7 +9396,7 @@
       },
       "properties": {
         "code": "27",
-        "nom": "Bourgogne-Franche-Comté",
+        "nom": "Bourgogne-Fr-Comté",
         "Year": "2017",
         "FirstScore": "25.09",
         "Surname": "LE PEN",
@@ -56431,7 +56431,7 @@
       },
       "properties": {
         "code": "93",
-        "nom": "Provence-Alpes-Côte d'Azur",
+        "nom": "PACA",
         "Year": "2017",
         "FirstScore": "28.16",
         "Surname": "LE PEN",

@@ -1,101 +1,259 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="https://unpkg.com/d3-simple-slider"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
-    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
+  <!-- Custom styles for this template -->
+  <link href="css/resume.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
-<h3> TITLE of the project</h3>
-<p> Introduction </p>
-<h4 style="color:red"> First vizualisation: French Map</h4>
+<body id="page-top">
 
-<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">DATART GROUP</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/france.jpg" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#intro">Intro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#chronology">Chronology</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#election">Elections result</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#correlation">Regional correlation</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#revenue">Regional TRUC</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
+  <div class="container-fluid" id = "whole">
 
-     <div class="row">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="intro">
+      <div class="w-100">
+        <h1 class="mb-0">DATART
+          <span class="text-primary">GROUP</span>
+        </h1>
+        <div class="subheading mb-5">Bensoussan Jérémy · 268502 · Abdejljalil Moussa · XXX · 
+         <a href="mailto:name@email.com">Group 2 - MGTHXXX</a>
+       </div>
+
+       <h2 class="mb-4">Introduction</h2>
+       <p>      This project is done in the frame of the course of Data visualization. It has for purpose to show the different elements that can influence the vote of the French population through vizualisations. The time boundaries of this project is from 2002 to 2017, being the last presidential election. </p>
+       <h5>"Opinion is something intermediary between knowledge and ignorance" </h5>
+       <h5>- Republic, Plato</h5>
+       <p class="lead mb-5">
+        This quote is the basis of our work, we hope through these vizualisation to spread objective political knowledge and erase different preconceived information. We will explore through the following information key information about the different influences that can touch the votes of the French citizen.
+        Every data comes from a governmental source and is therefore not subject to controversy or discussion.
+      </p>
+      <div class="social-icons">
+        <a href="#">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="m-0">
+
+  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="chronology">
+    <div class="w-100">
+      <h2 class="mb-4">Chronology</h2>
+      <p>Firstly, to understand a little bit more the French population mindset, it seems important to focus on its environment and on the different events that occurred since 2002. Of course, a lot happened in 15 years, but we selected the main events that have the power to influence the vote of a French citizen.  Among these we can quote the different terrorist attacks that happened in France in 2015 or the laws affecting minorities (face covering ban, gay marriage…) </p>
+      <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1-q-HfEsys_FAljMOt08zIJ-lukOEescZPTIPOgu0Am0&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+    </div>
+
+  </section>
+
+  <hr class="m-0">
+
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="election">
+    <div class="w-100">
+      <h2 class="mb-4">Elections Result</h2>
+
+      <p>Have you ever wondered how the political landscape changed in France among the last years? Some of us may know the latest Frenfch presidents or even the second round. We wanted to explore this matter through a vizualisation exploring the votes at the presidential elections since 2002. The switch in votes of the regions throughout the years or the France fracture that can be observed through the support to the winning candidate on the second turn remain important data to understand the French dynamics.</p>
+      <div class="container">
+       <div class="row">
          <div class="col-sm">
-             <div id="map"></div>
-              <div class="col row align-items-center">
-      <h3 id = "b">Sort by:</h3>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active btn-sm">
-            <input type="radio" name="options" id="option1" checked> First Round
-        </label>
-        <label class="btn btn-secondary btn-sm">
-            <input type="radio" name="options" id="option2"> Second Round
-        </label>
-        <label class="btn btn-secondary btn-sm">
-            <input type="radio" name="options" id="option3"> Votes percentage
-        </label>
-    </div>
-    <div id="slider-step"></div>
-    </div>
+           <div id="map"></div>
+           <div class="col row align-items-center">
+            <h3 id = "b">Sort by:</h3>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active btn-sm">
+                <input type="radio" name="options" id="option1" checked> First Round
+              </label>
+              <label class="btn btn-secondary btn-sm">
+                <input type="radio" name="options" id="option2"> Second Round
+              </label>
+              <label class="btn btn-secondary btn-sm">
+                <input type="radio" name="options" id="option3"> Support range
+              </label>
             </div>
+            <div id="slider-step"></div>
+          </div>
         </div>
+      </div>
     </div>
-<p> Explanation for this vizualisation </p>
-<h4 style="color:red"> Second vizualisation: Correlation</h4>
-<div class="container">
 
 
+
+
+
+  </div>
+</section>
+
+<hr class="m-0">
+
+<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="correlation">
+  <div class="w-100">
+    <h2 class="mb-4">Regional election</h2>
+    <p>Now that we've understand how the French citizen vote per region and the different events in France that could've oriented their votes, it seems important to explore the correlation between different factors affecting the population and their vote. In this vizualisation, we did some statistical work to understand the profile of the departments voting for each political parti/candidate. For example, departments having an higher revenue will vote for the right wing (here represented by Francois Fillon). We also displayed the statistical significance of the data, since the purpose of the project is to be as objective and clear as possible and to avoid stereotypes. 
+      <br>We also included the white voters and the abstentionist profiles, being two majors political forces in France that kept increasing over the last few years. </p>
+      <div class="container">
+
+
+       <div class="row">
+         <div class="col-sm " id = "plot">
+
+          <div id="dim"></div>
+
+          <div class="col row align-items-center">
+            <h4 class ="label h4title" id = "Y">X-axis</h4>
+            <select class="selectpicker" id = "Xpick">
+              <option>Revenue</option>
+              <option>Migrants Rate</option>
+              <option>Unemployment Rate</option>
+            </select>
+            <h4 class = "label h4title" id = "Y">Y-axis</h4>
+            <select class="selectpicker" id = "Ypick">
+              <option>Unemployment Rate</option>
+              <option>Migrants Rate</option>
+              <option>Revenue</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="leg"></div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="m-0">
+
+<section class="resume-section p-3 p-lg-5 align-items-center" id="revenue">
+  <div class="w-100">
+    <h2 class="mb-4">REGIONAL ELECTOINS</h2>
+    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+
+
+
+    <div class="container">
      <div class="row">
-         <div class="col-sm">
+       <div class="col-sm">
+        <div class="col row  flex-row-reverse bg-secondary">
+          <select class="selectpicker" id = "yearPick">
+            <option>Every Region</option>
+            <option>Auvergne-Rhône-Alpes</option>
+            <option>Bourgogne-Franche-Comté</option>
+            <option>Bretagne</option>
+            <option>Centre-Val-de-Loire</option>
+            <option>Corse</option>
+            <option>DOM</option>
+            <option>Grand Est</option>
+            <option>Guadeloupe</option>
+            <option>Guyane</option>
+            <option>Hauts-de-France</option>
+            <option>La Réunion</option>
+            <option>Martinique</option>
+            <option>Normandie</option>
+            <option>Nouvelle-Aquitaine</option>
+            <option>Occitanie</option>
+            <option>Pays de la Loire</option>
+            <option>Provence-Alpes-Côte d'Azur</option>
+            <option>Île-de-France</option>
 
-    <div id="dim"></div>
+          </select>
+        </div>
 
-<div class="col row align-items-center">
-<h4 class ="label h4title">X-axis</h4>
-<select class="selectpicker" id = "Xpick">
-  <option>Revenue</option>
-  <option>Migrants Rate</option>
-  <option>Unemployment Rate</option>
-</select>
-<h4 class = "label h4title" id = "Y">Y-axis</h4>
-<select class="selectpicker" id = "Ypick">
-  <option>Unemployment Rate</option>
-  <option>Migrants Rate</option>
-  <option>Revenue</option>
-</select>
+        <svg id="chart"></svg>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-<p> Explanation for this vizualisation </p>
-<h4 style="color:red"> Third vizualisation: Region taxes</h4>
+</section>
 
-<img class="fit-picture"
-     src="Taxes.png"
-     alt="Taxis per region vizualisation">
-<p> Explanation for this vizualisation </p>
-<h4 style="color:red"> Fourth vizualisation: Multiple elections</h4>
+<hr class="m-0">
 
-<img class="fit-picture"
-     src="elect.png"
-     alt="Multiple election vizualisation">
-
-<p> Explanation for this vizualisation </p>
-<h4 style="color:red"> Fifth vizualisation: Chronology</h4>
+<section class="resume-section p-3 p-lg-5 align-items-center" id="conclusion">
+  <div class="w-100">
+    <h2 class="mb-4">CONCLUSION</h2>
+    <p>FEAFAEOHFIUEHFIEHUFIEFAHIFHEAIHFIEHFIHFIAHFIUHEAFIHEAIUHFIEAHF</p>
+  </div>
+</section>
 
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!-- Custom scripts for this template -->
+<script src="js/resume.min.js"></script>
+<script src="./ScatterRevenue/d3-tip.js"></script>
 
-
-</body>
-</html>
 <script src  = "./French_map/viz_french.js"> </script>
 <script src  = "./ScatterParty/dimensionality.js"> </script>
+<script src  = "./ScatterRevenue/salary.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
-<iframe src="./event/index.html" id="event" name="event" width="1850" height="500" frameborder="0" ></iframe>
+</body>
+
+</html>

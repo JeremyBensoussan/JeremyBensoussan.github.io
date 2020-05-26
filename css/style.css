@@ -1,0 +1,183 @@
+.tooltipFrench {
+    position: absolute;
+    text-align: center;
+    width: 175px;
+    height: 50px;
+    padding: 2px;
+    background: white;
+    border: 1px solid;
+    pointer-events: none;
+    line-height: normal;
+}
+.tooltipScatter {
+    position: absolute;
+    text-align: center;
+    width: 250px;
+    height: 130px;
+    padding: 2px;
+    background: white;
+    border: 1px solid;
+    pointer-events: none;
+    line-height: normal;
+    border-radius: 4px;
+}
+.tooltipScatter2 {
+    position: absolute;
+    text-align: center;
+    width: 250px;
+    height: 100px;
+    padding: 2px;
+    background: white;
+    border: 1px solid;
+    pointer-events: none;
+    line-height: normal;
+    border-radius: 4px;
+}
+span{
+    font-weight: normal;
+}
+
+#leg{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#plot{
+  
+    padding-right: 0;
+}
+.scatter{
+    text-align: left;
+    font-size: 14px;
+    padding: 0 0 0 4px;
+        font-family: Helvectica, sans-serif;
+    margin-bottom: 7px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.ulFrench {
+    list-style-type: none;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+
+.liFrench {
+    text-align: left;
+    padding-left: 5px;
+    font-size: 10px;
+    margin-top: 2px;
+    color :initial;
+}
+
+
+
+.h3French {
+    text-align: left;
+    font-size: 12px;
+    padding: 0 0 0 3px;
+    margin: 0px;
+    font-weight: bold;
+     font-family: Helvectica, sans-serif;
+
+}
+
+#b{
+  
+    font-size: .875rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 7px;
+     font-family: Helvectica, sans-serif;
+}
+#slider-step{
+    margin-left: 10px;
+}
+
+.h4title{
+        font-size: 12px;
+     padding: 0 0 0 4px;
+     text-align: left;
+     margin: 0px;
+         font-weight: bold;
+     margin-bottom:7px;
+      font-family: Helvectica, sans-serif;
+}
+
+.label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#Y{
+    padding-top: 5px;
+    margin-left: 30px;
+}
+
+* {
+ font-family: Helvectica, sans-serif;
+}
+
+
+
+
+body{
+   line-height: none;
+}
+
+#whole{
+    padding-left:20px;
+}
+
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+#chart {
+
+  min-width: 1100px;
+  min-height: 550px;
+
+}
+
+.d3-tip {
+  line-height: 1;
+  font: 14px sans-serif;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgb(185, 185, 185);
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}.bg-secondary {
+    background-color: white!important;
+}

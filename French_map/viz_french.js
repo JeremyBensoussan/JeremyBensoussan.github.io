@@ -74,7 +74,6 @@ function draw(round = 1){
       .append("path")
             .attr('class', function(d){return d.properties.nom[0] + d.properties.nom[1]  + d.properties.nom[2];})//Assign na class name to each region. 3 first letters taken to avoid spaces
             .style("fill", function(d){//Fill the region by the color of the party depending of the year
-             console.log(d.properties["Parti"],matching[d.properties["Parti"]])
              if(round == 1){
               switch(sliderStep.value()) {    
                 case 2017:
@@ -98,7 +97,7 @@ function draw(round = 1){
                 break;
               }
             }if(round == 3){
-                switch(sliderStep.value()) {    
+              switch(sliderStep.value()) {    
                 case 2017:
                 x = format(d.properties.second["FirstScore"])
                 return degrade[Math.round(x / 10,0) * 10]; 
@@ -115,7 +114,7 @@ function draw(round = 1){
                 break;
 
                 case 2002:
-                 x = format(d.properties.second["FirstScore2"])
+                x = format(d.properties.second["FirstScore2"])
                 return degrade[Math.round(x / 10,0) * 10];
                 break;
 
@@ -205,57 +204,56 @@ function draw(round = 1){
                       break;
                     }
                   }if(round == 3){
-                     switch(sliderStep.value()) {    
-                case 2017:
-                x = format(d.properties.second["FirstScore"])
-                return degradeDark[Math.round(x / 10,0) * 10]; 
-                break;
-
-                case 2012:
-                x = format(d.properties.second["FirstScore0"])
-                return degradeDark[Math.round(x / 10,0) * 10];
-                break;
-
-                case 2007:
-                x = format(d.properties.second["FirstScore1"])
-                return degradeDark[Math.round(x / 10,0) * 10];
-                break;
-
-                case 2002:
-                x = format(d.properties.second["FirstScore2"])
-                console.log(d.properties.nom,x,Math.round(x / 10,0) * 10)
-                return degradeDark[Math.round(x / 10,0) * 10];
-                break;
-
-                default:
-                x = format(d.properties.second["FirstScore"])
-                return degradeDark[Math.round(x / 10,0) * 10]; 
-                break;
-              }
-                  }else{
                    switch(sliderStep.value()) {    
                     case 2017:
-                    return matchingDark[d.properties.second["Parti"]]; 
+                    x = format(d.properties.second["FirstScore"])
+                    return degradeDark[Math.round(x / 10,0) * 10]; 
                     break;
 
                     case 2012:
-                    return matchingDark[d.properties.second["Parti0"]]; 
+                    x = format(d.properties.second["FirstScore0"])
+                    return degradeDark[Math.round(x / 10,0) * 10];
                     break;
 
                     case 2007:
-                    return matchingDark[d.properties.second["Parti1"]]; 
+                    x = format(d.properties.second["FirstScore1"])
+                    return degradeDark[Math.round(x / 10,0) * 10];
                     break;
 
                     case 2002:
-                    return matchingDark[d.properties.second["Parti2"]]; 
+                    x = format(d.properties.second["FirstScore2"])
+                    return degradeDark[Math.round(x / 10,0) * 10];
                     break;
 
                     default:
-                    return matchingDark[d.properties.seonc["Parti"]];
+                    x = format(d.properties.second["FirstScore"])
+                    return degradeDark[Math.round(x / 10,0) * 10]; 
                     break;
                   }
+                }else{
+                 switch(sliderStep.value()) {    
+                  case 2017:
+                  return matchingDark[d.properties.second["Parti"]]; 
+                  break;
+
+                  case 2012:
+                  return matchingDark[d.properties.second["Parti0"]]; 
+                  break;
+
+                  case 2007:
+                  return matchingDark[d.properties.second["Parti1"]]; 
+                  break;
+
+                  case 2002:
+                  return matchingDark[d.properties.second["Parti2"]]; 
+                  break;
+
+                  default:
+                  return matchingDark[d.properties.seonc["Parti"]];
+                  break;
                 }
-              })
+              }
+            })
 
 
                 divFrench.transition()  //Make the tooltip appear      
@@ -349,9 +347,9 @@ function draw(round = 1){
                 )}
               })
 
-              .on("mouseout", function(d) {
-                st = "." + d.properties.nom[0] + d.properties.nom[1]  + d.properties.nom[2]
-                deps.select(st)    
+ .on("mouseout", function(d) {
+  st = "." + d.properties.nom[0] + d.properties.nom[1]  + d.properties.nom[2]
+  deps.select(st)    
                     .style("fill", function(d){//Fill the previous selected region back to its original colour
 
                       if(round == 1){
@@ -379,57 +377,57 @@ function draw(round = 1){
 
 
                       }if(round == 3){
-                         switch(sliderStep.value()) {    
-                case 2017:
-                x = format(d.properties.second["FirstScore"])
-                return degrade[Math.round(x / 10,0) * 10]; 
-                break;
+                       switch(sliderStep.value()) {    
+                        case 2017:
+                        x = format(d.properties.second["FirstScore"])
+                        return degrade[Math.round(x / 10,0) * 10]; 
+                        break;
 
-                case 2012:
-                x = format(d.properties.second["FirstScore0"])
-                return degrade[Math.round(x / 10,0) * 10];
-                break;
+                        case 2012:
+                        x = format(d.properties.second["FirstScore0"])
+                        return degrade[Math.round(x / 10,0) * 10];
+                        break;
 
-                case 2007:
-                x = format(d.properties.second["FirstScore1"])
-                return degrade[Math.round(x / 10,0) * 10];
-                break;
+                        case 2007:
+                        x = format(d.properties.second["FirstScore1"])
+                        return degrade[Math.round(x / 10,0) * 10];
+                        break;
 
-                case 2002:
-                 x = format(d.properties.second["FirstScore2"])
-                return degrade[Math.round(x / 10,0) * 10];
-                break;
+                        case 2002:
+                        x = format(d.properties.second["FirstScore2"])
+                        return degrade[Math.round(x / 10,0) * 10];
+                        break;
 
-                default:
-                x = format(d.properties.second["FirstScore"])
-                return degrade[Math.round(x / 10,0) * 10]; 
-                break;
-              }
-                    
-                      }else{
-                        switch(sliderStep.value()) {    
-                          case 2017:
-                          return matching[d.properties.second["Parti"]]; 
-                          break;
-
-                          case 2012:
-                          return matching[d.properties.second["Parti0"]]; 
-                          break;
-
-                          case 2007:
-                          return matching[d.properties.second["Parti1"]]; 
-                          break;
-
-                          case 2002:
-                          return matching[d.properties.second["Parti2"]]; 
-                          break;
-
-                          default:
-                          return matching[d.properties.second["Parti"]];
-                          break;
-                        }
+                        default:
+                        x = format(d.properties.second["FirstScore"])
+                        return degrade[Math.round(x / 10,0) * 10]; 
+                        break;
                       }
-                    })
+
+                    }else{
+                      switch(sliderStep.value()) {    
+                        case 2017:
+                        return matching[d.properties.second["Parti"]]; 
+                        break;
+
+                        case 2012:
+                        return matching[d.properties.second["Parti0"]]; 
+                        break;
+
+                        case 2007:
+                        return matching[d.properties.second["Parti1"]]; 
+                        break;
+
+                        case 2002:
+                        return matching[d.properties.second["Parti2"]]; 
+                        break;
+
+                        default:
+                        return matching[d.properties.second["Parti"]];
+                        break;
+                      }
+                    }
+                  })
                 divFrench.style("opacity", 0)//Tooltip diseapear
                 .style("left", "-500px")
                 .style("top", "-500px");
@@ -457,7 +455,7 @@ var sliderStep = d3
         draw(checkState())  
         deps.selectAll("#textLegend").remove()
         deps.selectAll("#rectLegend").remove()
-        appendLegend()
+        appendNewLegend()
       });
 
 
@@ -473,7 +471,7 @@ var gStep = d3
 
 
 function appendTitle(){//Create title and subtitle of the graphic
-  
+
   deps.append("text")
   .attr("x", 20)
   .attr("y", 25)
@@ -494,78 +492,79 @@ function appendTitle(){//Create title and subtitle of the graphic
 
 //Create legend
 function appendLegend(){
-    var size = 15  
+
+  var size = 15  
   if(checkState() == 3){
    deps.selectAll("dots")
-  .data(legendNuancedColor)
-  .enter()
-  .append("rect")
-  .attr("id","rectLegend")
-  .attr("x", 3*width / 4+ 40)
-  .attr("y", function(d,i){ return height/2 - 30 + i*(size+5)}) 
-  .attr("width", size)
-  .attr("height", size)
-  .style("fill", function(d){return d})
+   .data(legendNuancedColor)
+   .enter()
+   .append("rect")
+   .attr("id","rectLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", function(d,i){ return height/2 - 30 + i*(size+5)}) 
+   .attr("width", size)
+   .attr("height", size)
+   .style("fill", function(d){return d})
 
- deps.selectAll("labels")
-  .data(legendNuancedAxis)
-  .enter()
-  .append("text")
-  .attr("id","textLegend")
-  .attr("x", 3*width / 4+ 40  + size*1.2)
-  .attr("y", function(d,i){ return height/2 - 30 + i*(size+5) + (size/2)}) 
-  .style("fill", function(d,i){ return legendNuancedColor[i]})
-  .text(function(d){return d})
-  .attr("text-anchor", "left")
-  .style("alignment-baseline", "middle")
-  .attr("font-size",12 )
-  .attr("font", "Helvetica");
+   deps.selectAll("labels")
+   .data(legendNuancedAxis)
+   .enter()
+   .append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40  + size*1.2)
+   .attr("y", function(d,i){ return height/2 - 30 + i*(size+5) + (size/2)}) 
+   .style("fill", function(d,i){ return legendNuancedColor[i]})
+   .text(function(d){return d})
+   .attr("text-anchor", "left")
+   .style("alignment-baseline", "middle")
+   .attr("font-size",12 )
+   .attr("font", "Helvetica");
 
- deps.append("text")
- .attr("id","textLegend")
-  .attr("x", 3*width / 4+ 40)
-  .attr("y", height/2 - 55 )
-  .attr("text-anchor", "left")
-  .style("fill", "#929292")
-  .style("font-weight", "200")  
-  .style("font-size", "12px") 
-  .text("Pourcentage of votes to:"); 
-deps.append("text")
-.attr("id","textLegend")
-  .attr("x", 3*width / 4+ 40)
-  .attr("y", height/2 - 40 )
-  .attr("text-anchor", "left")
-  .style("fill", "dark")
-  .style("font-weight", "bold")  
-  .style("font-size", "12px") 
-  .text(function(){
+   deps.append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", height/2 - 55 )
+   .attr("text-anchor", "left")
+   .style("fill", "#929292")
+   .style("font-weight", "200")  
+   .style("font-size", "12px") 
+   .text("Pourcentage of votes to:"); 
+   deps.append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", height/2 - 40 )
+   .attr("text-anchor", "left")
+   .style("fill", "dark")
+   .style("font-weight", "bold")  
+   .style("font-size", "12px") 
+   .text(function(){
     switch(sliderStep.value()){
 
-    case 2017:
-    return "Emmanuel Macron";
-    break;
+      case 2017:
+      return "Emmanuel Macron";
+      break;
 
-    case 2012:
-    return "Francois Hollande";
-    break;
+      case 2012:
+      return "Francois Hollande";
+      break;
 
-    case 2007:
-    return "Nicolas Sarkozy";
-    break;
+      case 2007:
+      return "Nicolas Sarkozy";
+      break;
 
-    case 2002:
-    return "Jacques Chirac";
-    break;
-    default:
-    return "Emmanuel Macron";
-    break;
-  }
+      case 2002:
+      return "Jacques Chirac";
+      break;
+      default:
+      return "Emmanuel Macron";
+      break;
+    }
   });  
 
 
 
-  }else{
-    
+ }else{
+
   deps.selectAll("dots")
   .data(legendColor)
   .enter()
@@ -590,51 +589,161 @@ deps.append("text")
   .style("alignment-baseline", "middle")
   .attr("font-size",12 )
   .attr("font", "Helvetica");
-  }
- 
 }
+
+}
+
+
+
 appendLegend()
 //appendTitle()
 draw()
+reset = 1
+function appendNewLegend(){
+
+  if(reset ==1){
+    width = width - 40
+   height = height - 160
+   reset = 0
+ }
 
 
+   var size = 15  
+  if(checkState() == 3){
+   deps.selectAll("dots")
+   .data(legendNuancedColor)
+   .enter()
+   .append("rect")
+   .attr("id","rectLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", function(d,i){ return height/2 - 30 + i*(size+5)}) 
+   .attr("width", size)
+   .attr("height", size)
+   .style("fill", function(d){return d})
+
+   deps.selectAll("labels")
+   .data(legendNuancedAxis)
+   .enter()
+   .append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40  + size*1.2)
+   .attr("y", function(d,i){ return height/2 - 30 + i*(size+5) + (size/2)}) 
+   .style("fill", function(d,i){ return legendNuancedColor[i]})
+   .text(function(d){return d})
+   .attr("text-anchor", "left")
+   .style("alignment-baseline", "middle")
+   .attr("font-size",12 )
+   .attr("font", "Helvetica");
+
+   deps.append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", height/2 - 55 )
+   .attr("text-anchor", "left")
+   .style("fill", "#929292")
+   .style("font-weight", "200")  
+   .style("font-size", "12px") 
+   .text("Pourcentage of votes to:"); 
+   deps.append("text")
+   .attr("id","textLegend")
+   .attr("x", 3*width / 4+ 40)
+   .attr("y", height/2 - 40 )
+   .attr("text-anchor", "left")
+   .style("fill", "dark")
+   .style("font-weight", "bold")  
+   .style("font-size", "12px") 
+   .text(function(){
+    switch(sliderStep.value()){
+
+      case 2017:
+      return "Emmanuel Macron";
+      break;
+
+      case 2012:
+      return "Francois Hollande";
+      break;
+
+      case 2007:
+      return "Nicolas Sarkozy";
+      break;
+
+      case 2002:
+      return "Jacques Chirac";
+      break;
+      default:
+      return "Emmanuel Macron";
+      break;
+    }
+  });  
+
+
+
+ }else{
+
+  deps.selectAll("dots")
+  .data(legendColor)
+  .enter()
+  .append("rect")
+  .attr("id","rectLegend")
+  .attr("x", 3*width / 4+ 40)
+  .attr("y", function(d,i){ return height/2 - 30 + i*(size+5)}) 
+  .attr("width", size)
+  .attr("height", size)
+  .style("fill", function(d){return d})
+
+  deps.selectAll("labels")
+  .data(legendText)
+  .enter()
+  .append("text")
+  .attr("id","textLegend")
+  .attr("x", 3*width / 4+ 40  + size*1.2)
+  .attr("y", function(d,i){ return height/2 - 30 + i*(size+5) + (size/2)}) 
+  .style("fill", function(d,i){ return legendColor[i]})
+  .text(function(d){return d})
+  .attr("text-anchor", "left")
+  .style("alignment-baseline", "middle")
+  .attr("font-size",12 )
+  .attr("font", "Helvetica");
+}
+
+}
 
 $('input#option1').on("change",function(d){
   deps.selectAll("path").remove();//Redraw on slider move
-   deps.selectAll("#textLegend").remove()
+  deps.selectAll("#textLegend").remove()
   deps.selectAll("#rectLegend").remove()
-  appendLegend()
+  appendNewLegend()
   draw(1)  
   
 });
 
 $('input#option2').on("change",function(d){
   deps.selectAll("path").remove();//Redraw on slider move
-   deps.selectAll("#textLegend").remove()
-        deps.selectAll("#rectLegend").remove()
-        appendLegend()
+  deps.selectAll("#textLegend").remove()
+  deps.selectAll("#rectLegend").remove()
+  appendNewLegend()
   draw(2)  
 });
 
 $('input#option3').on("change",function(d){
   deps.selectAll("path").remove();//Redraw on slider move
-   deps.selectAll("#textLegend").remove()
-        deps.selectAll("#rectLegend").remove()
-        appendLegend()
+  deps.selectAll("#textLegend").remove()
+  deps.selectAll("#rectLegend").remove()
+  appendNewLegend()
   draw(3)  
 });
 
 
 function checkState(){
-   checkbox1 = $('input#option1')
-   checkbox2 = $('input#option2')
-   if (checkbox1.is(':checked'))  {
-    return 1;   
-   }
-   if(checkbox2.is(':checked')){
-    return 2;
-   }else {
-     return 3;
-   }
+ checkbox1 = $('input#option1')
+ checkbox2 = $('input#option2')
+ if (checkbox1.is(':checked'))  {
+  return 1;   
+}
+if(checkbox2.is(':checked')){
+  return 2;
+}else {
+ return 3;
+}
 }
 

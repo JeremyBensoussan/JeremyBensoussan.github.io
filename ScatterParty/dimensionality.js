@@ -1,4 +1,6 @@
-var width = 850, height = 650;
+var widthLeg = 600, heightLeg = 80;
+
+var width = 750, height = 650;
 var revenue = [-0.0006017,0.0007958,0.0004412,0.00001389,-0.0006276,0.0003567,-0.0003784,-0.00003548]
 var migrantsRate = [-0.1951640,-0.1006791,0.0744296,0.05650,0.3091435,-0.0630517,-0.08118,-0.01711]
 var tauxChomage = [0.0292984,-0.2515104,-0.4201149 ,-0.06561,-0.1598621,-0.2385,-0.002633,1.1062898]
@@ -51,7 +53,9 @@ function filterOutliers(someArray) {
     return filteredValues;
 }
 
-var svg = d3.select("#dim")
+var svgLeg = d3.select("#leg").append("svg").attr("width",widthLeg).attr("height",heightLeg)
+
+var svgMain = d3.select("#dim")
 .append("svg")
 .attr("width", width)
 .attr("height", height);
@@ -70,18 +74,18 @@ var scaleY = d3.scaleLinear()
                    .scale(scaleY).tickValues([]);
 
     //Append group and insert axis
-    svg.append("g")
+    svgMain.append("g")
     .attr("id","xaxis")
     .attr("transform","translate(20,"+((height-100)/2+50)+")")
     .call(x_axis);
-    svg.append("g")
+    svgMain.append("g")
     .attr("id","yaxis")
-    .attr("transform", "translate( "+(width - 200)/2+",50)")
+    .attr("transform", "translate( "+(width - 100)/2+",50)")
     .call(y_axis);
 
     d3.json("./ScatterParty/data.json").then(function(d){
 
-    	circle1 = svg.selectAll("boule")
+    	circle1 = svgMain.selectAll("boule")
     	.data(d.Feuil1)
     	.enter()
     	.append("circle")
@@ -105,7 +109,7 @@ var scaleY = d3.scaleLinear()
 
 
 
-    	circle2 = svg.selectAll("boule2")
+    	circle2 = svgMain.selectAll("boule2")
     	.data(d.Feuil1)
     	.enter()
     	.append("circle")
@@ -135,7 +139,7 @@ var scaleY = d3.scaleLinear()
 
 
 
-    	candidatesCircle = 	svg
+    	candidatesCircle = 	svgMain
     	.selectAll("dot")
     	.data(d.Feuil1)
     	.enter()
@@ -203,113 +207,116 @@ var scaleY = d3.scaleLinear()
 
     function appendLegend(){
 
-    	svg.append("text")             
-    	.attr("x",width-216)
-    	.attr("y",height/5-110)
+    	svgLeg.append("text")             
+    	.attr("x",0)
+    	.attr("y",height/5-100)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
     	.style("text-decoration","underline")
+        .style("font-size","13px")
     	.text("Statistical significance:");
 
 
-    	svg.append("text")             
-    	.attr("x",width-160)
+    	svgLeg.append("text")             
+    	.attr("x",35)
     	.attr("y",height/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
+.style("font-size","13px")
+    	.text(" Non significant");
 
-    	.text("Non significant");
-
-    	svg.append("text")             
-    	.attr("x",width-160)
-    	.attr("y",height/5)
+    	svgLeg.append("text")             
+    	.attr("x",237 )
+    	.attr("y",height/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
-    	.text("Significant");
+        .style("font-size","13px")
+    	.text(" Significant");
 
-    	svg.append("text")             
-    	.attr("x",width-160)
-    	.attr("y",height/5+70)
+    	svgLeg.append("text")             
+    	.attr("x",410)
+    	.attr("y",height/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
-    	.text("Highly significant");
+        .style("font-size","13px")
+    	.text(" Highly significant");
 
 
 
-    	svg.append("image")
+    	svgLeg.append("image")
     	.attr("xlink:href","./ScatterParty/Image/Empty.png")
-    	.attr("height",40)
-    	.attr("width",40)
-    	.attr("x",width-217)
-    	.attr("y",height/5-69-24)
+    	.attr("height",30)
+    	.attr("width",30)
+    	.attr("x",0)
+    	.attr("y",height/5-69-24+5)
 
-    	svg.append("image")
+    	svgLeg.append("image")
     	.attr("xlink:href","./ScatterParty/Image/Empty.png")
-    	.attr("height",40)
-    	.attr("width",40)
-    	.attr("x",width-217)
-    	.attr("y",height/5-27)
+    	.attr("height",30)
+    	.attr("width",30)
+    	.attr("x",195)
+    	.attr("y",height/5-69-24+5)
 
 
-    	svg.append("image")
+    	svgLeg.append("image")
     	.attr("xlink:href","./ScatterParty/Image/Empty.png")
-    	.attr("height",40)
-    	.attr("width",40)
-    	.attr("x",width-217)
-    	.attr("y",height/5+69-27)
+    	.attr("height",30)
+    	.attr("width",30)
+    	.attr("x",365)
+    	.attr("y",height/5-69-24+5)
 
 
-    	svg
+    	svgLeg
     	.append("circle")
-    	.attr("cx", width-197)
-    	.attr("cy", height/5-7)
+    	.attr("cx", 210)
+    	.attr("cy", height/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
-    	.attr("r","20")
+    	.attr("r","15")
 
-    	svg
+    	svgLeg
     	.append("circle")
-    	.attr("cx", width-197)
-    	.attr("cy", height/5+62)
+    	.attr("cx", 380)
+    	.attr("cy", height/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
-    	.attr("r","20")
+    	.attr("r","15")
 
     	
-    	svg
+    	svgLeg
     	.append("circle")
-    	.attr("cx", width-197)
-    	.attr("cy", height/5+62)
+    	.attr("cx", 380)
+    	.attr("cy", height/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
-    	.attr("r","26")
+    	.attr("r","21")
 
     	
     }
 
     function appendLabels(){
 
-    	svg.append("text") 
+    	svgMain.append("text") 
     	.attr("id","xlabel")            
-    	.attr("x",2.55*width/3-80)
-    	.attr("y",height/2+30)
+    	.attr("x",2.55*width/3-50)
+    	.attr("y",height/2+8)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
     	.text(function(d){return $('#Xpick')[0].value});
 
-    	svg.append("text")     	
+    	svgMain.append("text")     	
     	.attr("id","ylabel")            
-    	.attr("x",width/2-150)
+    	.attr("x",width/2-60)
     	.attr("y",35)
-    	.style("text-anchor", "left")
+    	.style("text-anchor", "middle")
     	.style("fill", "dark")
     	.style("font-weight","bold")
     	.text(function(d){return $('#Ypick')[0].value});
@@ -319,7 +326,7 @@ var scaleY = d3.scaleLinear()
     appendLabels()
 
     $('#Xpick').on("change",function(d){
-    	svg.selectAll("#xlabel").remove()
+    	svgMain.selectAll("#xlabel").remove()
 
     	appendLabels()
     	var circlesCoef;
@@ -357,10 +364,15 @@ var scaleY = d3.scaleLinear()
 	   var x_axis = d3.axisBottom()
    .scale(scaleX)
               .tickValues([]);
- 	svg.select("#xaxis").remove()
-                svg.append("g")
 
-    .attr("id","xaxis")
+
+ 	//svg.select("#xaxis").remove()
+               // svg.append("g")
+
+
+
+    //.attr("id","xaxis")
+    svgMain.select("#xaxis").transition()
     .attr("transform","translate(20,"+((height-100)/2+50)+")")
     .call(x_axis);
 
@@ -405,7 +417,7 @@ var scaleY = d3.scaleLinear()
 ///////////////////////////////////////////////////////////////////////:
 
     $('#Ypick').on("change",function(d){
-    	svg.selectAll("#ylabel").remove()
+    	svgMain.selectAll("#ylabel").remove()
     	appendLabels()
     	var circlesCoef;
     	var ydata;
@@ -452,12 +464,13 @@ var scaleY = d3.scaleLinear()
                    	return scaleY(d[select]); 
                    } )
 
-                   svg.select("#yaxis").remove()
+                   //svg.select("#yaxis").remove()
 
-                   svg.append("g")
-                   .attr("id","yaxis")
-                   .attr("transform", "translate( "+(width - 200)/2+",50)")
+                   svgMain.select("#yaxis").transition()
+                   .attr("transform", "translate( "+(width - 100)/2+",50)")
                    .call(y_axis);
+
+
 
                    circle1.transition().duration(1000)
                    .attr("cy", function (d) { 

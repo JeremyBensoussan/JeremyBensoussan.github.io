@@ -45,12 +45,17 @@ var svg = d3.select("#chart")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg.append("circle").attr("cx",1060).attr("cy",0).attr("r", 6).style("fill", "#120136")
-svg.append("circle").attr("cx",1060).attr("cy",30).attr("r", 6).style("fill", "#40bad5")
-svg.append("circle").attr("cx",1060).attr("cy",60).attr("r", 6).style("fill", "#035aa6")
-svg.append("text").attr("x", 1080).attr("y", 0).text("Municipal").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 1080).attr("y", 30).text("Presidential").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 1080).attr("y", 60).text("Legislative").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("circle").attr("cx",780).attr("cy",0).attr("r", 6).style("fill", "#120136")
+svg.append("circle").attr("cx",780).attr("cy",30).attr("r", 6).style("fill", "#40bad5")
+svg.append("circle").attr("cx",780).attr("cy",60).attr("r", 6).style("fill", "#035aa6")
+svg.append("text").attr("x", 800).attr("y", 0).text("Municipal").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 800).attr("y", 30).text("Presidential").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 800).attr("y", 60).text("Legislative").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
+svg.append("text").attr("x", -15).attr("y",-15).text("Voting Percentage (in %)").style("font-size", "15px").attr("alignment-baseline","middle")
+
+svg.append("text").attr("x", 2*width - 120).attr("y", height - 20 ).text("Gross Salary (in €)").style("font-size", "15px").attr("alignment-baseline","middle")
 
 var tip = d3.tip()
     .attr('class', 'd3-tip')
@@ -77,7 +82,7 @@ d3.csv("./ScatterRevenue/salary2.csv").then( function(data) {
   });
 
   x.domain([6000, 28000]);
-  y.domain([0, 60]);
+  y.domain([20, 100]);
   r.domain(d3.extent (subset, function (d)  {return d.participation;}));
 
   svg.append("g")
@@ -86,8 +91,8 @@ d3.csv("./ScatterRevenue/salary2.csv").then( function(data) {
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
+      .attr("x", 70)
+      .attr("y", 70)
       .style("text-anchor", "end")
       .text("Gross Salary (in €)");
 
@@ -139,7 +144,7 @@ $('#yearPick').on("change",function(d){
     });
 
     x.domain([6000, 28000]);
-    y.domain([0, 60]);
+    y.domain([20, 100]);
     r.domain(d3.extent (dataFilter, function (d)  {return d.participation;}));
 
     svg.selectAll(".dot").remove()

@@ -1,6 +1,6 @@
 var widthLeg = 600, heightLeg = 80;
 
-var width = 750, height = 650;
+var widthSelf = 750, heightSelf = 650;
 var revenue = [-0.0006017,0.0007958,0.0004412,0.00001389,-0.0006276,0.0003567,-0.0003784,-0.00003548]
 var migrantsRate = [-0.1951640,-0.1006791,0.0744296,0.05650,0.3091435,-0.0630517,-0.08118,-0.01711]
 var tauxChomage = [0.0292984,-0.2515104,-0.4201149 ,-0.06561,-0.1598621,-0.2385,-0.002633,1.1062898]
@@ -57,15 +57,17 @@ var svgLeg = d3.select("#leg").append("svg").attr("width",widthLeg).attr("height
 
 var svgMain = d3.select("#dim")
 .append("svg")
-.attr("width", width)
-.attr("height", height);
+.attr("width", widthSelf)
+.attr("height", heightSelf);
 var scaleX = d3.scaleLinear()
 .domain([-absMax(filterOutliers(revenue)), absMax(filterOutliers(revenue))])
-.range([0, width - 200]);
+.range([0, widthSelf - 200]);
+
+console.log(widthSelf)
 
 var scaleY = d3.scaleLinear()
 .domain([-absMax(filterOutliers(tauxChomage)), absMax(filterOutliers(tauxChomage))])
-.range([height-100, 0]);
+.range([heightSelf-100, 0]);
    // Add scales to axis
    var x_axis = d3.axisBottom()
    .scale(scaleX)
@@ -76,11 +78,11 @@ var scaleY = d3.scaleLinear()
     //Append group and insert axis
     svgMain.append("g")
     .attr("id","xaxis")
-    .attr("transform","translate(20,"+((height-100)/2+50)+")")
+    .attr("transform","translate(20,"+((heightSelf-100)/2+50)+")")
     .call(x_axis);
     svgMain.append("g")
     .attr("id","yaxis")
-    .attr("transform", "translate( "+(width - 100)/2+",50)")
+    .attr("transform", "translate( "+(widthSelf - 100)/2+",50)")
     .call(y_axis);
 
     d3.json("./ScatterParty/data.json").then(function(d){
@@ -209,7 +211,7 @@ var scaleY = d3.scaleLinear()
 
     	svgLeg.append("text")             
     	.attr("x",0)
-    	.attr("y",height/5-100)
+    	.attr("y",heightSelf/5-100)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
@@ -220,7 +222,7 @@ var scaleY = d3.scaleLinear()
 
     	svgLeg.append("text")             
     	.attr("x",35)
-    	.attr("y",height/5-67)
+    	.attr("y",heightSelf/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
@@ -229,7 +231,7 @@ var scaleY = d3.scaleLinear()
 
     	svgLeg.append("text")             
     	.attr("x",237 )
-    	.attr("y",height/5-67)
+    	.attr("y",heightSelf/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
@@ -238,7 +240,7 @@ var scaleY = d3.scaleLinear()
 
     	svgLeg.append("text")             
     	.attr("x",410)
-    	.attr("y",height/5-67)
+    	.attr("y",heightSelf/5-67)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
@@ -252,14 +254,14 @@ var scaleY = d3.scaleLinear()
     	.attr("height",30)
     	.attr("width",30)
     	.attr("x",0)
-    	.attr("y",height/5-69-24+5)
+    	.attr("y",heightSelf/5-69-24+5)
 
     	svgLeg.append("image")
     	.attr("xlink:href","./ScatterParty/Image/Empty.png")
     	.attr("height",30)
     	.attr("width",30)
     	.attr("x",195)
-    	.attr("y",height/5-69-24+5)
+    	.attr("y",heightSelf/5-69-24+5)
 
 
     	svgLeg.append("image")
@@ -267,13 +269,13 @@ var scaleY = d3.scaleLinear()
     	.attr("height",30)
     	.attr("width",30)
     	.attr("x",365)
-    	.attr("y",height/5-69-24+5)
+    	.attr("y",heightSelf/5-69-24+5)
 
 
     	svgLeg
     	.append("circle")
     	.attr("cx", 210)
-    	.attr("cy", height/5-73)
+    	.attr("cy", heightSelf/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
@@ -282,7 +284,7 @@ var scaleY = d3.scaleLinear()
     	svgLeg
     	.append("circle")
     	.attr("cx", 380)
-    	.attr("cy", height/5-73)
+    	.attr("cy", heightSelf/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
@@ -292,7 +294,7 @@ var scaleY = d3.scaleLinear()
     	svgLeg
     	.append("circle")
     	.attr("cx", 380)
-    	.attr("cy", height/5-73)
+    	.attr("cy", heightSelf/5-73)
     	.style("fill", "none")
     	.attr("stroke","#273568")
     	.attr("stroke-width","2") 
@@ -305,8 +307,8 @@ var scaleY = d3.scaleLinear()
 
     	svgMain.append("text") 
     	.attr("id","xlabel")            
-    	.attr("x",2.55*width/3-50)
-    	.attr("y",height/2+8)
+    	.attr("x",2.55*widthSelf/3-50)
+    	.attr("y",heightSelf/2+8)
     	.style("text-anchor", "left")
     	.style("fill", "dark")
     	.style("font-weight","bold")
@@ -314,7 +316,7 @@ var scaleY = d3.scaleLinear()
 
     	svgMain.append("text")     	
     	.attr("id","ylabel")            
-    	.attr("x",width/2-60)
+    	.attr("x",widthSelf/2-60)
     	.attr("y",35)
     	.style("text-anchor", "middle")
     	.style("fill", "dark")
@@ -359,7 +361,7 @@ var scaleY = d3.scaleLinear()
 
     var scaleX = d3.scaleLinear()
 	.domain([-absMax(filterOutliers(xdata)), absMax(filterOutliers(xdata))])
-	.range([0, width - 200]);
+	.range([0, widthSelf - 200]);
 
 	   var x_axis = d3.axisBottom()
    .scale(scaleX)
@@ -373,7 +375,7 @@ var scaleY = d3.scaleLinear()
 
     //.attr("id","xaxis")
     svgMain.select("#xaxis").transition()
-    .attr("transform","translate(20,"+((height-100)/2+50)+")")
+    .attr("transform","translate(20,"+((heightSelf-100)/2+50)+")")
     .call(x_axis);
 
     candidatesCircle.transition().duration(1000)
@@ -447,7 +449,7 @@ var scaleY = d3.scaleLinear()
     
     	var scaleY = d3.scaleLinear()
     	.domain([-absMax(filterOutliers(ydata)), absMax(filterOutliers(ydata))])
-    	.range([height-100, 0])
+    	.range([heightSelf-100, 0])
 		
              var y_axis = d3.axisLeft()
                    .scale(scaleY).tickValues([]);
@@ -465,9 +467,10 @@ var scaleY = d3.scaleLinear()
                    } )
 
                    //svg.select("#yaxis").remove()
+                   console.log(widthSelf)
 
                    svgMain.select("#yaxis").transition()
-                   .attr("transform", "translate( "+(width - 100)/2+",50)")
+                   .attr("transform", "translate( "+(widthSelf - 100)/2+",50)")
                    .call(y_axis);
 
 

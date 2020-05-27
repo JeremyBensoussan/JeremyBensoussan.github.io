@@ -28,7 +28,6 @@ var yAxis = d3.axisLeft()
 var format = d3.format(".2f")
 
 function changeElection(ele){
-  console.log(ele)
   if(ele == "cantonales"){
     return "Municipal"
   
@@ -61,6 +60,7 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
+      console.log(d.region);
       return "<div><span>Election:</span> <span style='color:white;text-transform:capitalize;'>" + changeElection(d.election) + "</span></div>" +
               "<div><span>Region:</span> <span style='color:white'>" + d.region + "</span></div>" +
               "<div><span>Year:</span> <span style='color:white'>" + d.year + "</span></div>"+
@@ -132,10 +132,13 @@ $('#yearPick').on("change",function(d){
     // Create new data with the selection?
     if(selectedGroup != "Every Region"){
 
-      var dataFilter = subset.filter(function(d){if(d.region == "Martinique "){return d.region == "Martinique "}return d.region==selectedGroup})
+      var dataFilter = subset.filter(function(d){return d.region==selectedGroup})
+
   }else{
     var dataFilter = data.filter(function(el){return el.Metric === 'Salary'});
   }
+
+  console.log(dataFilter)
 
     dataFilter.forEach(function(d) {
       d.participation = +d.participation;

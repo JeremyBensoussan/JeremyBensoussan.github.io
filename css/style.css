@@ -181,3 +181,12 @@ body{
 }.bg-secondary {
     background-color: white!important;
 }
+
+.center {
+  display: block;
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+ 
+}

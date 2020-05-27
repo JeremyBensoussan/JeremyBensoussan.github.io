@@ -44,12 +44,12 @@ var svg = d3.select("#chart")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg.append("circle").attr("cx",780).attr("cy",0).attr("r", 6).style("fill", "#120136")
-svg.append("circle").attr("cx",780).attr("cy",30).attr("r", 6).style("fill", "#40bad5")
-svg.append("circle").attr("cx",780).attr("cy",60).attr("r", 6).style("fill", "#035aa6")
-svg.append("text").attr("x", 800).attr("y", 0).text("Municipal").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 800).attr("y", 30).text("Presidential").style("font-size", "15px").attr("alignment-baseline","middle")
-svg.append("text").attr("x", 800).attr("y", 60).text("Legislative").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("circle").attr("cx",800).attr("cy",0).attr("r", 6).style("fill", "#120136")
+svg.append("circle").attr("cx",800).attr("cy",30).attr("r", 6).style("fill", "#40bad5")
+svg.append("circle").attr("cx",800).attr("cy",60).attr("r", 6).style("fill", "#035aa6")
+svg.append("text").attr("x", 820).attr("y", 0).text("Municipal").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 820).attr("y", 30).text("Presidential").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 820).attr("y", 60).text("Legislative").style("font-size", "15px").attr("alignment-baseline","middle")
 
 
 svg.append("text").attr("x", -15).attr("y",-15).text("Voting Percentage (in %)").style("font-size", "15px").attr("alignment-baseline","middle")
